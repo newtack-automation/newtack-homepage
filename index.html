@@ -3,68 +3,58 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NEWTACK 뉴텍 | Smart Factory Automation</title>
-<meta name="description" content="뉴텍은 로봇·PLC 기반 공장자동화, 조립라인, 가공라인, 물류 자동화 시스템을 구축하는 스마트 자동화 전문기업입니다." />
+<title>NEWTACK</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:#02070d}
-body{font-family:Arial,'Noto Sans KR',sans-serif;background:#02070d;color:#fff;overflow-x:hidden}
-.site{width:100%;max-width:1498px;margin:0 auto;background:#02070d;position:relative}
-.visual-wrap{position:relative;width:100%}
-.main-visual{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
-.hotspot{position:absolute;display:block;border-radius:6px;z-index:5;background:rgba(255,120,0,0);transition:background .2s ease, box-shadow .2s ease}
-.hotspot:hover{background:rgba(255,120,0,.08);box-shadow:0 0 0 1px rgba(255,120,0,.35) inset}
-/* 10.png 기준 클릭 영역 */
-.nav-company{left:37.8%;top:0.4%;width:8.3%;height:6.2%}
-.nav-vision{left:50.1%;top:0.4%;width:8.3%;height:6.2%}
-.nav-project{left:62.0%;top:0.4%;width:8.3%;height:6.2%}
-.nav-contact{left:74.3%;top:0.4%;width:8.3%;height:6.2%}
-.hero-button{left:43.0%;top:28.8%;width:12.8%;height:4.6%}
-.company-button{left:4.9%;top:47.5%;width:10.2%;height:4.6%}
-.vision-button{left:4.9%;top:63.7%;width:10.2%;height:4.6%}
-.project-button{left:4.9%;top:79.8%;width:10.2%;height:4.6%}
-.anchor-target{position:absolute;width:1px;height:1px;left:0}
-#company{top:36.5%}#vision{top:53.2%}#project{top:69.7%}#contact{top:85.7%}
-.seo-content{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-@media (max-width:768px){
-  .site{max-width:none}
-  .visual-wrap{min-width:760px}
-  body{overflow-x:auto}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: #02070d;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* 전체 구조 단순화 */
+.homepage {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #02070d;
+}
+
+/* 10.png 그대로 표시 */
+.main-image {
+  width: 100%;
+  display: block;
+}
+
+/* 모바일에서도 화면폭에 맞춤 */
+@media (max-width: 768px) {
+  .homepage {
+    width: 100%;
+  }
+
+  .main-image {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>
 </head>
+
 <body>
-<main class="site">
-  <div class="visual-wrap">
-    <img class="main-visual" src="10.png" alt="NEWTACK 뉴텍 스마트 공장자동화 홈페이지 메인 화면" />
 
-    <span id="company" class="anchor-target"></span>
-    <span id="vision" class="anchor-target"></span>
-    <span id="project" class="anchor-target"></span>
-    <span id="contact" class="anchor-target"></span>
+<div class="homepage">
+  <img src="10.png" alt="NEWTACK 홈페이지 메인 시안" class="main-image">
+</div>
 
-    <a class="hotspot nav-company" href="#company" aria-label="회사소개로 이동"></a>
-    <a class="hotspot nav-vision" href="#vision" aria-label="비전으로 이동"></a>
-    <a class="hotspot nav-project" href="#project" aria-label="프로젝트로 이동"></a>
-    <a class="hotspot nav-contact" href="#contact" aria-label="연락처로 이동"></a>
-    <a class="hotspot hero-button" href="#company" aria-label="더 알아보기"></a>
-    <a class="hotspot company-button" href="#contact" aria-label="회사소개 문의하기"></a>
-    <a class="hotspot vision-button" href="#project" aria-label="비전 자세히 보기"></a>
-    <a class="hotspot project-button" href="#contact" aria-label="프로젝트 문의하기"></a>
-  </div>
-
-  <section class="seo-content" aria-label="뉴텍 회사 정보">
-    <h1>NEWTACK 뉴텍</h1>
-    <p>스마트 자동화로, 더 나은 내일을 만듭니다. Smart Automation, Better Tomorrow.</p>
-    <h2>회사소개</h2>
-    <p>뉴텍은 공장자동화, 로봇자동화, 청정자동화, 조립라인 구축 분야의 전문 기업으로 고객의 생산성 향상과 품질 혁신을 실현합니다.</p>
-    <h2>비전</h2>
-    <p>지속적인 혁신과 고객 중심의 가치로 스마트한 공장을 만들어갑니다.</p>
-    <h2>프로젝트</h2>
-    <p>다양한 산업 분야의 프로젝트 경험과 기술력으로 최적의 솔루션을 제공합니다.</p>
-    <h2>연락처</h2>
-    <p>전화 055-277-5988, 휴대폰 010-8781-5988, 이메일 new014@naver.com, 주소 경상남도 창원시 의창구 사화로 210 제5아파트형공장 304호</p>
-  </section>
-</main>
 </body>
 </html>
