@@ -20,9 +20,19 @@ html{
 
 body{
     font-family:'Pretendard','Noto Sans KR',sans-serif;
-    background:#000814;
+    background:#020814;
     color:white;
     overflow-x:hidden;
+}
+
+/* 스크롤바 */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff8a00;
 }
 
 /* 메뉴 */
@@ -33,18 +43,18 @@ header{
     left:0;
     width:100%;
     z-index:999;
-    background:rgba(0,0,0,0.82);
+    background:rgba(0,0,0,0.75);
     backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .nav{
-    max-width:1400px;
+    max-width:1500px;
     margin:auto;
     height:90px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:0 40px;
 }
 
@@ -52,7 +62,6 @@ header{
     font-size:52px;
     font-weight:900;
     color:#ff8a00;
-    letter-spacing:2px;
 }
 
 .menu{
@@ -72,46 +81,51 @@ header{
     color:#ff8a00;
 }
 
-/* 공통 섹션 */
+/* 공통 */
 
-.section{
+section{
+    position:relative;
     width:100%;
     min-height:100vh;
+    overflow:hidden;
+}
+
+.bg{
+    position:absolute;
+    inset:0;
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    position:relative;
 }
 
-/* 어두운 오버레이 */
-
-.section::before{
-    content:'';
+.overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.15),
-        rgba(0,0,0,0.45)
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,8,20,0.96) 0%,
+        rgba(0,8,20,0.82) 35%,
+        rgba(0,8,20,0.35) 60%,
+        rgba(0,8,20,0.10) 100%
     );
 }
 
-.inner{
+.content{
     position:relative;
     z-index:2;
-    max-width:1400px;
+    max-width:1500px;
     margin:auto;
-    padding:140px 40px;
+    padding:160px 60px;
 }
 
 /* HERO */
 
-.hero{
-    background:url('01.png') center/cover no-repeat;
+.hero .bg{
+    background-image:url('01.png');
 }
 
-.hero-content{
+.hero-wrap{
     min-height:100vh;
     display:flex;
     flex-direction:column;
@@ -127,114 +141,126 @@ header{
 }
 
 .hero-title{
-    font-size:150px;
+    font-size:160px;
     font-weight:900;
     color:#ff8a00;
     line-height:1;
-    margin-bottom:30px;
 }
 
 .hero-desc{
     font-size:52px;
     font-weight:700;
+    margin-top:25px;
 }
 
-.btn{
+.hero-btn{
     margin-top:50px;
     display:inline-block;
-    padding:20px 50px;
+    padding:22px 60px;
     border:2px solid #ff8a00;
+    border-radius:12px;
     color:white;
     text-decoration:none;
-    border-radius:12px;
-    font-size:22px;
+    font-size:24px;
     font-weight:700;
     transition:0.3s;
 }
 
-.btn:hover{
+.hero-btn:hover{
     background:#ff8a00;
 }
 
-/* 타이틀 */
+/* 공통 타이틀 */
 
-.section-title{
-    font-size:90px;
+.title-num{
+    color:#ff8a00;
+    font-size:80px;
     font-weight:900;
-    margin-bottom:20px;
 }
 
-.section-sub{
-    font-size:32px;
+.title-main{
+    font-size:90px;
+    font-weight:900;
+    margin-top:10px;
+}
+
+.title-sub{
+    font-size:40px;
     color:#ff8a00;
-    margin-bottom:50px;
+    margin-top:10px;
     font-weight:700;
 }
 
-/* 비전 */
-
-.vision{
-    background:url('02.png') center/cover no-repeat;
+.text-box{
+    width:50%;
+    padding-top:100px;
 }
 
-/* 회사소개 */
-
-.company{
-    background:url('03.png') center/cover no-repeat;
+.desc{
+    margin-top:40px;
+    font-size:30px;
+    line-height:1.9;
 }
 
-/* 핵심역량 */
+/* 섹션 배경 */
 
-.core{
-    background:url('04.png') center/cover no-repeat;
+.vision .bg{
+    background-image:url('02.png');
 }
 
-/* 실적 */
-
-.performance{
-    background:url('05.png') center/cover no-repeat;
+.company .bg{
+    background-image:url('03.png');
 }
 
-/* 프로젝트 */
-
-.project{
-    background:url('06.png') center/cover no-repeat;
+.core .bg{
+    background-image:url('04.png');
 }
 
-/* 차별성 */
-
-.difference{
-    background:url('07.png') center/cover no-repeat;
+.performance .bg{
+    background-image:url('05.png');
 }
 
-/* 프로세스 */
-
-.process{
-    background:url('08.png') center/cover no-repeat;
+.project .bg{
+    background-image:url('06.png');
 }
 
-/* 연락처 */
-
-.contact{
-    background:url('09.png') center/cover no-repeat;
+.difference .bg{
+    background-image:url('07.png');
 }
 
-/* 글래스 카드 */
+.process .bg{
+    background-image:url('08.png');
+}
+
+.contact .bg{
+    background-image:url('09.png');
+}
+
+/* 카드 */
 
 .glass{
-    background:rgba(0,0,0,0.45);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:20px;
+    margin-top:40px;
+    background:rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.12);
     backdrop-filter:blur(10px);
+    border-radius:20px;
     padding:40px;
 }
 
-/* 푸터 */
+/* CONTACT */
+
+.contact-info{
+    margin-top:50px;
+    font-size:32px;
+    line-height:2.2;
+}
+
+/* footer */
 
 footer{
-    background:#020611;
+    background:#000;
     text-align:center;
-    padding:40px;
+    padding:35px;
     color:#aaa;
     font-size:16px;
 }
@@ -261,19 +287,31 @@ footer{
     }
 
     .hero-desc{
-        font-size:26px;
+        font-size:24px;
     }
 
     .hero-sub{
-        font-size:22px;
+        font-size:20px;
     }
 
-    .section-title{
+    .title-main{
         font-size:50px;
     }
 
-    .section-sub{
+    .title-sub{
         font-size:24px;
+    }
+
+    .title-num{
+        font-size:50px;
+    }
+
+    .text-box{
+        width:100%;
+    }
+
+    .desc{
+        font-size:22px;
     }
 
 }
@@ -285,270 +323,319 @@ footer{
 
 <header>
 
-    <div class="nav">
+<div class="nav">
 
-        <div class="logo">NEWTACK</div>
+<div class="logo">NEWTACK</div>
 
-        <div class="menu">
-            <a href="#vision">VISION</a>
-            <a href="#company">COMPANY</a>
-            <a href="#core">CORE</a>
-            <a href="#project">PROJECT</a>
-            <a href="#contact">CONTACT</a>
-        </div>
+<div class="menu">
+<a href="#vision">VISION</a>
+<a href="#company">COMPANY</a>
+<a href="#core">CORE</a>
+<a href="#project">PROJECT</a>
+<a href="#contact">CONTACT</a>
+</div>
 
-    </div>
+</div>
 
 </header>
 
 <!-- HERO -->
 
-<section class="section hero">
+<section class="hero">
 
-    <div class="inner hero-content">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="hero-sub">
-            스마트 자동화로, 더 나은 내일을 만듭니다
-        </div>
+<div class="content hero-wrap">
 
-        <div class="hero-title">
-            NEWTACK
-        </div>
+<div class="hero-sub">
+스마트 자동화로, 더 나은 내일을 만듭니다
+</div>
 
-        <div class="hero-desc">
-            SMART AUTOMATION, BETTER TOMORROW
-        </div>
+<div class="hero-title">
+NEWTACK
+</div>
 
-        <a href="#company" class="btn">
-            더 알아보기 →
-        </a>
+<div class="hero-desc">
+SMART AUTOMATION, BETTER TOMORROW
+</div>
 
-    </div>
+<a href="#company" class="hero-btn">
+더 알아보기 →
+</a>
+
+</div>
 
 </section>
 
 <!-- VISION -->
 
-<section id="vision" class="section vision">
+<section id="vision" class="vision">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">VISION</div>
+<div class="text-box">
 
-            <div class="section-sub">
-                스마트팩토리 선도 기업
-            </div>
+<div class="title-num">02</div>
 
-            <p style="font-size:28px; line-height:1.8;">
-                지속적인 혁신과 고객 중심의 가치로<br>
-                스마트한 공장을 만들어갑니다.
-            </p>
+<div class="title-main">
+VISION
+</div>
 
-        </div>
+<div class="title-sub">
+뉴텍의 약속
+</div>
 
-    </div>
+<div class="glass desc">
+지속적인 혁신과 고객 중심 가치로<br>
+스마트팩토리 자동화의 미래를 만들어갑니다.
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- COMPANY -->
 
-<section id="company" class="section company">
+<section id="company" class="company">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">COMPANY</div>
+<div class="text-box">
 
-            <div class="section-sub">
-                회사 소개
-            </div>
+<div class="title-num">03</div>
 
-            <p style="font-size:28px; line-height:2;">
-                뉴텍은 공장자동화, 로봇자동화, 조립라인 구축 분야의<br>
-                전문 기업으로 고객 맞춤형 자동화 솔루션을 제공합니다.
-            </p>
+<div class="title-main">
+COMPANY
+</div>
 
-        </div>
+<div class="title-sub">
+회사 소개
+</div>
 
-    </div>
+<div class="glass desc">
+뉴텍은 공장자동화, 로봇자동화, 조립라인 구축 분야의<br>
+전문 기업으로 고객 맞춤형 자동화 솔루션을 제공합니다.
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- CORE -->
 
-<section id="core" class="section core">
+<section id="core" class="core">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">
-                CORE COMPETENCY
-            </div>
+<div class="text-box">
 
-            <div class="section-sub">
-                핵심 경쟁력
-            </div>
+<div class="title-num">04</div>
 
-            <p style="font-size:28px; line-height:2;">
-                대기업 및 협력사 프로젝트 수행 경험과<br>
-                검증된 자동화 기술력을 보유하고 있습니다.
-            </p>
+<div class="title-main">
+CORE COMPETENCY
+</div>
 
-        </div>
+<div class="title-sub">
+핵심 경쟁력
+</div>
 
-    </div>
+<div class="glass desc">
+다양한 산업 자동화 경험과<br>
+검증된 기술력을 기반으로 최고의 품질을 제공합니다.
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- PERFORMANCE -->
 
-<section class="section performance">
+<section class="performance">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">
-                PERFORMANCE
-            </div>
+<div class="text-box">
 
-            <div class="section-sub">
-                주요 거래처
-            </div>
+<div class="title-num">05</div>
 
-            <p style="font-size:28px; line-height:2;">
-                LG전자 · 삼성전자 · 현대자동차 · 현대모비스<br>
-                현대위아 · 삼성전기 · 세아 · DL모터스 등
-            </p>
+<div class="title-main">
+PERFORMANCE
+</div>
 
-        </div>
+<div class="title-sub">
+주요 거래처
+</div>
 
-    </div>
+<div class="glass desc">
+LG전자 · 삼성전자 · 현대자동차 · 현대모비스<br>
+현대위아 · 삼성전기 · 세아 · DL모터스 등
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- PROJECT -->
 
-<section id="project" class="section project">
+<section id="project" class="project">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">
-                PROJECT CASE
-            </div>
+<div class="text-box">
 
-            <div class="section-sub">
-                프로젝트 사례
-            </div>
+<div class="title-num">06</div>
 
-            <p style="font-size:28px; line-height:2;">
-                고주파 자동화 라인<br>
-                조립 자동화 라인<br>
-                가공 자동화 라인<br>
-                용접 자동화 라인 등 다양한 프로젝트 수행
-            </p>
+<div class="title-main">
+PROJECT CASE
+</div>
 
-        </div>
+<div class="title-sub">
+프로젝트 사례
+</div>
 
-    </div>
+<div class="glass desc">
+고주파 자동화 라인<br>
+조립 자동화 라인<br>
+가공 자동화 라인<br>
+용접 자동화 라인 등 다양한 구축 경험
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- DIFFERENCE -->
 
-<section class="section difference">
+<section class="difference">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">
-                DIFFERENTIATION
-            </div>
+<div class="text-box">
 
-            <div class="section-sub">
-                뉴텍의 차별성
-            </div>
+<div class="title-num">07</div>
 
-            <p style="font-size:28px; line-height:2;">
-                고객 맞춤 설계<br>
-                신속한 대응<br>
-                최고의 품질과 안정성 제공
-            </p>
+<div class="title-main">
+DIFFERENTIATION
+</div>
 
-        </div>
+<div class="title-sub">
+뉴텍의 차별성
+</div>
 
-    </div>
+<div class="glass desc">
+대기업 1·2차 협력 경험<br>
+고객 맞춤형 자동화 구축<br>
+신속한 대응과 안정적 품질
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- PROCESS -->
 
-<section class="section process">
+<section class="process">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">
-                PROCESS
-            </div>
+<div class="text-box">
 
-            <div class="section-sub">
-                자동화 구축 프로세스
-            </div>
+<div class="title-num">08</div>
 
-            <p style="font-size:28px; line-height:2;">
-                분석 및 컨설팅 → 설계 → 제작 → 설치 및 시운전 → 유지보수
-            </p>
+<div class="title-main">
+PROCESS
+</div>
 
-        </div>
+<div class="title-sub">
+자동화 구축 프로세스
+</div>
 
-    </div>
+<div class="glass desc">
+분석 및 컨설팅 → 설계 → 제작 → 설치 및 시운전 → 유지보수
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- CONTACT -->
 
-<section id="contact" class="section contact">
+<section id="contact" class="contact">
 
-    <div class="inner">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-        <div class="glass">
+<div class="content">
 
-            <div class="section-title">
-                CONTACT
-            </div>
+<div class="text-box">
 
-            <div class="section-sub">
-                연락처
-            </div>
+<div class="title-num">09</div>
 
-            <p style="font-size:30px; line-height:2.2;">
-                경남 창원시 의창구 사화로 210<br>
-                제5아파트형공장 304호<br><br>
+<div class="title-main">
+CONTACT
+</div>
 
-                TEL : 055-277-5988<br>
-                MOBILE : 010-8781-5988<br>
-                FAX : 055-237-5554<br><br>
+<div class="title-sub">
+연락처
+</div>
 
-                www.newtack.co.kr
-            </p>
+<div class="glass contact-info">
 
-        </div>
+경남 창원시 의창구 사화로 210<br>
+제5아파트형공장 304호<br><br>
 
-    </div>
+TEL : 055-277-5988<br>
+MOBILE : 010-8781-5988<br>
+FAX : 055-237-5554<br><br>
+
+www.newtack.co.kr
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <footer>
-    © 2026 NEWTACK. ALL RIGHTS RESERVED.
+© 2026 NEWTACK. ALL RIGHTS RESERVED.
 </footer>
 
 </body>
