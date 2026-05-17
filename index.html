@@ -1,521 +1,567 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEWTACK | 뉴텍</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEWTACK 뉴텍</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,'Noto Sans KR',sans-serif;
-  background:#050b14;
-  color:#fff;
-  overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:64px;
-  z-index:999;
-  background:rgba(0,0,0,.88);
-  border-bottom:1px solid rgba(255,255,255,.12);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 8%;
-}
-.logo{
-  color:#ff7a00;
-  font-size:30px;
-  font-weight:900;
-}
-.menu{
-  display:flex;
-  gap:70px;
-  text-align:center;
-}
-.menu a{
-  font-size:15px;
-  font-weight:800;
-}
-.menu span{
-  display:block;
-  font-size:11px;
-  margin-top:2px;
-  opacity:.9;
-}
+    body {
+      font-family: "Noto Sans KR", "Pretendard", Arial, sans-serif;
+      background: #050b12;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-/* HERO */
-.hero{
-  margin-top:64px;
-  height:360px;
-  background:
-    linear-gradient(90deg,rgba(0,8,18,.25),rgba(0,8,18,.72),rgba(0,8,18,.25)),
-    url('02.png') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  border-bottom:1px solid rgba(255,255,255,.18);
-}
-.hero h1{
-  font-size:78px;
-  color:#ff7a00;
-  font-weight:900;
-  line-height:1;
-}
-.hero .topline{
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:16px;
-}
-.hero .subtitle{
-  font-size:25px;
-  margin-top:18px;
-  font-weight:600;
-}
-.btn{
-  display:inline-block;
-  margin-top:26px;
-  padding:12px 42px;
-  border:1px solid rgba(255,122,0,.9);
-  border-radius:5px;
-  color:#ff9b2f;
-  font-weight:700;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* COMMON BAND */
-.band{
-  min-height:185px;
-  display:grid;
-  grid-template-columns:32% 68%;
-  border-bottom:1px solid rgba(255,255,255,.18);
-  background:#07111f;
-}
-.band-left{
-  padding:28px 8%;
-  background:linear-gradient(90deg,#07111f 0%,#091725 72%,rgba(9,23,37,.2) 100%);
-  position:relative;
-  z-index:2;
-}
-.band-right{
-  position:relative;
-  min-height:185px;
-  background-size:cover;
-  background-position:center;
-}
-.band-right::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,rgba(7,17,31,.92) 0%,rgba(7,17,31,.42) 38%,rgba(7,17,31,.08) 100%);
-}
-.k-title{
-  font-size:30px;
-  font-weight:900;
-  margin-bottom:12px;
-}
-.k-title span{
-  font-size:18px;
-  color:#ff7a00;
-  margin-left:12px;
-}
-.desc{
-  font-size:16px;
-  line-height:1.8;
-  color:#e8e8e8;
-}
-.small-btn{
-  display:inline-block;
-  margin-top:18px;
-  padding:9px 28px;
-  border:1px solid rgba(255,255,255,.45);
-  border-radius:4px;
-  font-size:14px;
-}
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 85% 50%, rgba(0, 118, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #06111d 0%, #02060b 100%);
+    }
 
-/* BACKGROUNDS */
-.company-img{background-image:url('03.png')}
-.vision-img{background-image:url('02.png')}
-.core-img{background-image:url('04.png')}
-.performance-img{background-image:url('05.png')}
-.project-img{background-image:url('06.png')}
-.diff-img{background-image:url('07.png')}
-.process-img{background-image:url('08.png')}
-.contact-img{background-image:url('09.png')}
+    /* HEADER */
+    .header {
+      height: 60px;
+      background: rgba(0, 4, 9, 0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      position: relative;
+      z-index: 10;
+    }
 
-/* VISION CARDS */
-.vision-cards{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-}
-.vcard{
-  width:150px;
-  height:128px;
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:8px;
-  background:rgba(0,0,0,.42);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-.vcard .icon{
-  color:#ff7a00;
-  font-size:30px;
-  margin-bottom:8px;
-}
-.vcard strong{
-  font-size:17px;
-}
-.vcard p{
-  font-size:12px;
-  color:#ddd;
-  text-align:center;
-  margin-top:8px;
-  line-height:1.45;
-}
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      color: #ff7900;
+      letter-spacing: 1px;
+    }
 
-/* CORE */
-.core-icons{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  align-items:center;
-  text-align:center;
-  gap:10px;
-  padding:25px 7%;
-}
-.core-item{
-  border-left:1px solid rgba(255,255,255,.25);
-  min-height:95px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.core-item:first-child{border-left:0}
-.core-item .ico{
-  font-size:28px;
-  color:#ff7a00;
-  margin-bottom:8px;
-}
-.core-item strong{
-  font-size:18px;
-}
-.core-item p{
-  font-size:13px;
-  color:#ddd;
-  margin-top:7px;
-  line-height:1.5;
-}
+    .nav {
+      display: flex;
+      gap: 72px;
+      text-align: center;
+      font-weight: 700;
+    }
 
-/* PERFORMANCE */
-.logo-boxes{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  align-items:center;
-  gap:18px;
-  padding:35px 7%;
-}
-.logo-card{
-  height:82px;
-  border-radius:8px;
-  background:#f5f5f5;
-  color:#06306b;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  font-weight:900;
-}
+    .nav a {
+      font-size: 15px;
+      line-height: 1.15;
+    }
 
-/* PROJECT */
-.project-cards{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  align-items:center;
-  padding:24px 7%;
-}
-.pcard{
-  background:#111;
-  border:1px solid rgba(255,255,255,.22);
-  border-radius:7px;
-  overflow:hidden;
-}
-.pcard img{
-  width:100%;
-  height:110px;
-  object-fit:cover;
-  display:block;
-}
-.pcard div{
-  padding:8px;
-  text-align:center;
-  font-size:13px;
-  font-weight:800;
-}
+    .nav span {
+      display: block;
+      font-size: 11px;
+      margin-top: 4px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
 
-/* PROCESS */
-.process-flow{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px;
-  align-items:center;
-  padding:26px 7%;
-  text-align:center;
-}
-.step .circle{
-  width:56px;
-  height:56px;
-  margin:0 auto 8px;
-  border:1px solid rgba(255,255,255,.35);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-}
-.step strong{font-size:15px}
-.step p{
-  font-size:12px;
-  color:#ddd;
-  margin-top:6px;
-  line-height:1.4;
-}
+    /* HERO */
+    .hero {
+      height: 335px;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(2,8,15,0.28), rgba(2,8,15,0.7), rgba(2,8,15,0.28)),
+        url("assets/hero-factory.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
 
-/* CONTACT */
-.contact-list{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  align-items:center;
-  gap:28px;
-  padding:32px 7%;
-}
-.contact-item{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-.contact-item .circle{
-  width:54px;
-  height:54px;
-  border:1px solid rgba(255,255,255,.35);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-}
-.contact-item strong{
-  display:block;
-  font-size:16px;
-}
-.contact-item span{
-  color:#ddd;
-  font-size:13px;
-}
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 34%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.95;
+      z-index: 1;
+    }
 
-footer{
-  padding:22px;
-  text-align:center;
-  background:#02050b;
-  color:#888;
-  font-size:13px;
-}
+    .hero::before {
+      left: 2%;
+      background-image: url("assets/robot-left.png");
+      background-position: left center;
+    }
 
-@media(max-width:900px){
-  .nav{height:auto;flex-direction:column;padding:14px;gap:10px}
-  .menu{gap:18px;flex-wrap:wrap;justify-content:center}
-  .hero{margin-top:105px;height:420px}
-  .hero h1{font-size:52px}
-  .hero .subtitle{font-size:18px}
-  .band{grid-template-columns:1fr}
-  .band-left{padding:28px}
-  .vision-cards,.core-icons,.logo-boxes,.project-cards,.process-flow,.contact-list{
-    grid-template-columns:1fr;
-    padding:25px;
-  }
-}
-</style>
+    .hero::after {
+      right: 2%;
+      background-image: url("assets/robot-right.png");
+      background-position: right center;
+    }
+
+    .hero-light {
+      position: absolute;
+      right: 21%;
+      bottom: 28px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,156,255,0.85) 10%, rgba(0,110,255,0.35) 28%, transparent 60%);
+      filter: blur(0.5px);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    .hero-kor {
+      font-size: 23px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      opacity: 0.96;
+    }
+
+    .hero-title {
+      font-size: clamp(64px, 9vw, 110px);
+      font-weight: 900;
+      color: #ff7900;
+      line-height: 0.95;
+      letter-spacing: 1px;
+      text-shadow: 0 5px 18px rgba(0,0,0,0.65);
+    }
+
+    .hero-sub {
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    .btn-orange {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 26px;
+      padding: 11px 34px;
+      border: 1px solid #ff7900;
+      color: #ff8a18;
+      border-radius: 4px;
+      font-size: 16px;
+      background: rgba(0,0,0,0.25);
+    }
+
+    /* COMMON SECTION */
+    .section {
+      min-height: 175px;
+      border-bottom: 1px solid rgba(255,255,255,0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 22px 6%;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-title {
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 13px;
+    }
+
+    .section-title span {
+      font-size: 19px;
+      margin-left: 9px;
+      font-weight: 700;
+    }
+
+    .desc {
+      font-size: 15.5px;
+      line-height: 1.72;
+      color: rgba(255,255,255,0.9);
+      word-break: keep-all;
+    }
+
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 17px;
+      padding: 8px 18px;
+      min-width: 145px;
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: 3px;
+      font-size: 15px;
+      background: rgba(0,0,0,0.18);
+    }
+
+    /* COMPANY */
+    .company {
+      background:
+        linear-gradient(90deg, #07101a 0%, rgba(7,16,26,0.95) 30%, rgba(7,16,26,0.25) 58%, rgba(7,16,26,0.85) 100%),
+        url("assets/company-building.jpg") center/cover no-repeat;
+    }
+
+    .company .section-inner {
+      min-height: 175px;
+    }
+
+    .orange {
+      color: #ff7900;
+    }
+
+    /* VISION */
+    .vision {
+      background:
+        linear-gradient(90deg, rgba(4,12,22,0.95), rgba(4,12,22,0.72)),
+        url("assets/network-bg.jpg") center/cover no-repeat;
+    }
+
+    .blue {
+      color: #55b8ff;
+    }
+
+    .vision-content {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .vision-card {
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 7px;
+      background: rgba(0,0,0,0.28);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 42px;
+      color: #ff7900;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .vision-card strong {
+      font-size: 17px;
+      margin-bottom: 14px;
+    }
+
+    .vision-card p {
+      font-size: 12px;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.83);
+    }
+
+    /* PROJECT */
+    .project {
+      background: linear-gradient(90deg, #06131d, #071521);
+    }
+
+    .green {
+      color: #00a996;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .project-gallery img {
+      width: 100%;
+      height: 138px;
+      object-fit: cover;
+      border-radius: 7px;
+      border: 1px solid rgba(255,255,255,0.16);
+      display: block;
+    }
+
+    /* CONTACT */
+    .contact {
+      min-height: 145px;
+      background:
+        radial-gradient(circle at 80% 50%, rgba(0,110,255,0.12), transparent 36%),
+        linear-gradient(90deg, #06111a, #071423);
+    }
+
+    .purple {
+      color: #b07cff;
+    }
+
+    .contact .section-inner {
+      min-height: 145px;
+      grid-template-columns: 300px 1fr;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      flex-shrink: 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .contact-item p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.45;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        height: auto;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav {
+        gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        height: 430px;
+      }
+
+      .hero::before,
+      .hero::after {
+        opacity: 0.35;
+        width: 55%;
+      }
+
+      .hero-title {
+        font-size: 58px;
+      }
+
+      .section-inner,
+      .contact .section-inner {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 28px 6%;
+      }
+
+      .vision-content,
+      .contact-list {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .project-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .logo {
+        font-size: 26px;
+      }
+
+      .nav {
+        gap: 16px;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
+      .hero-title {
+        font-size: 44px;
+      }
+
+      .hero-sub {
+        font-size: 17px;
+      }
+
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="page">
 
-<header class="nav">
-  <div class="logo">NEWTACK</div>
-  <nav class="menu">
-    <a href="#company">회사소개<span>COMPANY</span></a>
-    <a href="#vision">비전<span>VISION</span></a>
-    <a href="#project">프로젝트<span>PROJECT</span></a>
-    <a href="#contact">연락처<span>CONTACT</span></a>
-  </nav>
-</header>
+    <header class="header">
+      <div class="logo">NEWTACK</div>
 
-<section class="hero">
-  <div>
-    <div class="topline">스마트 자동화로, 더 나은 내일을 만듭니다</div>
-    <h1>NEWTACK</h1>
-    <div class="subtitle">SMART AUTOMATION, BETTER TOMORROW</div>
-    <a class="btn" href="#company">더 알아보기 →</a>
-  </div>
-</section>
+      <nav class="nav">
+        <a href="#company">회사소개<span>COMPANY</span></a>
+        <a href="#vision">비전<span>VISION</span></a>
+        <a href="#project">프로젝트<span>PROJECT</span></a>
+        <a href="#contact">연락처<span>CONTACT</span></a>
+      </nav>
+    </header>
 
-<section id="company" class="band">
-  <div class="band-left">
-    <div class="k-title">회사소개 <span>COMPANY</span></div>
-    <div class="desc">
-      뉴텍은 공장자동화, 로봇자동화, 청정자동화, 조립라인 구축 분야의<br>
-      전문 기업으로 고객의 생산성 향상과 품질 혁신을 실현합니다.
-    </div>
-    <a href="#contact" class="small-btn">문의하기 →</a>
-  </div>
-  <div class="band-right company-img"></div>
-</section>
+    <section class="hero">
+      <div class="hero-light"></div>
 
-<section id="vision" class="band">
-  <div class="band-left">
-    <div class="k-title" style="color:#5ab4ff">VISION <span style="color:#8ecbff">비전</span></div>
-    <div class="desc">
-      지속적인 혁신과 고객 중심의 가치로<br>
-      스마트한 공장을 만들어갑니다.
-    </div>
-    <a href="#project" class="small-btn">자세히 보기 →</a>
-  </div>
-  <div class="band-right vision-img">
-    <div class="vision-cards">
-      <div class="vcard"><div class="icon">◎</div><strong>MISSION</strong><p>검증된 자동화 기술과<br>맞춤형 솔루션 제공</p></div>
-      <div class="vcard"><div class="icon">◉</div><strong>VISION</strong><p>스마트팩토리<br>선도 기업</p></div>
-      <div class="vcard"><div class="icon">♙</div><strong>VALUE</strong><p>신뢰 · 품질 ·<br>지속 성장</p></div>
-    </div>
-  </div>
-</section>
+      <div class="hero-content">
+        <div class="hero-kor">스마트 자동화로, 더 나은 내일을 만듭니다</div>
+        <h1 class="hero-title">NEWTACK</h1>
+        <div class="hero-sub">SMART AUTOMATION, BETTER TOMORROW</div>
+        <a href="#company" class="btn-orange">더 알아보기 <span>→</span></a>
+      </div>
+    </section>
 
-<section id="core" class="band">
-  <div class="band-left">
-    <div class="k-title">04<br>CORE COMPETENCY</div>
-    <div class="desc">핵심 경쟁력</div>
-  </div>
-  <div class="band-right core-img">
-    <div class="core-icons">
-      <div class="core-item"><div class="ico">⚙</div><strong>다양한 산업 경험</strong><p>대기업 및 중소기업<br>다수 프로젝트 수행</p></div>
-      <div class="core-item"><div class="ico">⚒</div><strong>맞춤형 설계 기술</strong><p>고객 요구에 최적화된<br>자동화 시스템 설계</p></div>
-      <div class="core-item"><div class="ico">◇</div><strong>품질 관리</strong><p>철저한 품질 관리로<br>최고의 시스템 구축</p></div>
-      <div class="core-item"><div class="ico">☏</div><strong>신속한 대응</strong><p>빠른 납기와<br>안정적인 사후관리</p></div>
-    </div>
-  </div>
-</section>
+    <section class="section company" id="company">
+      <div class="section-inner">
+        <div>
+          <h2 class="section-title">회사소개 <span class="orange">COMPANY</span></h2>
+          <p class="desc">
+            뉴텍은 공장자동화, 로봇자동화, 청정자동화, 조립라인 구축 분야의<br>
+            전문 기업으로 고객의 생산성 향상과 품질 혁신을 실현합니다.
+          </p>
+          <a href="#vision" class="btn-line">자세히 보기 <span>→</span></a>
+        </div>
+      </div>
+    </section>
 
-<section class="band">
-  <div class="band-left">
-    <div class="k-title">05<br>PERFORMANCE</div>
-    <div class="desc">주요 거래처</div>
-  </div>
-  <div class="band-right performance-img">
-    <div class="logo-boxes">
-      <div class="logo-card">LG전자</div>
-      <div class="logo-card">SAMSUNG</div>
-      <div class="logo-card">HYUNDAI</div>
-      <div class="logo-card">HYUNDAI MOBIS</div>
-    </div>
-  </div>
-</section>
+    <section class="section vision" id="vision">
+      <div class="section-inner">
+        <div>
+          <h2 class="section-title blue">VISION <span>비전</span></h2>
+          <p class="desc">
+            지속적인 혁신과 고객 중심의 가치로<br>
+            스마트한 공장을 만들어갑니다.
+          </p>
+          <a href="#project" class="btn-line">자세히 보기 <span>→</span></a>
+        </div>
 
-<section id="project" class="band">
-  <div class="band-left">
-    <div class="k-title" style="color:#00a894">PROJECT <span style="color:#00c2ad">프로젝트</span></div>
-    <div class="desc">
-      다양한 산업 분야의 프로젝트 경험과<br>
-      기술력으로 최적의 솔루션을 제공합니다.
-    </div>
-    <a href="#contact" class="small-btn">자세히 보기 →</a>
-  </div>
-  <div class="band-right project-img">
-    <div class="project-cards">
-      <div class="pcard"><img src="06.png"><div>고주파 자동화 라인</div></div>
-      <div class="pcard"><img src="04.png"><div>조립 자동화 라인</div></div>
-      <div class="pcard"><img src="07.png"><div>가공 자동화 라인</div></div>
-      <div class="pcard"><img src="08.png"><div>용접 CO2 자동화 라인</div></div>
-    </div>
-  </div>
-</section>
+        <div class="vision-content">
+          <div class="vision-card">
+            <div class="icon">◎</div>
+            <strong>MISSION</strong>
+            <p>검증된 자동화 기술과<br>맞춤형 솔루션 제공</p>
+          </div>
 
-<section class="band">
-  <div class="band-left">
-    <div class="k-title">07<br>DIFFERENTIATION</div>
-    <div class="desc">뉴텍의 차별성</div>
-  </div>
-  <div class="band-right diff-img">
-    <div class="core-icons">
-      <div class="core-item"><div class="ico">♙</div><strong>대기업 협력 경험</strong><p>다양한 산업의<br>프로젝트 수행 실적</p></div>
-      <div class="core-item"><div class="ico">⚒</div><strong>맞춤형 솔루션</strong><p>고객 환경에 최적화된<br>설계 및 구축</p></div>
-      <div class="core-item"><div class="ico">◷</div><strong>신속한 대응</strong><p>체계적인 프로젝트 관리로<br>정시 납기 실현</p></div>
-      <div class="core-item"><div class="ico">◇</div><strong>합리적 비용</strong><p>최적의 가격으로<br>최고의 품질 제공</p></div>
-    </div>
-  </div>
-</section>
+          <div class="vision-card">
+            <div class="icon">◉</div>
+            <strong>VISION</strong>
+            <p>스마트팩토리<br>선도 기업</p>
+          </div>
 
-<section class="band">
-  <div class="band-left">
-    <div class="k-title">08<br>PROCESS</div>
-    <div class="desc">프로세스</div>
-  </div>
-  <div class="band-right process-img">
-    <div class="process-flow">
-      <div class="step"><div class="circle">☊</div><strong>분석 및 컨설팅</strong><p>현장 분석 및<br>요구사항 정의</p></div>
-      <div class="step"><div class="circle">⚒</div><strong>설계</strong><p>최적의 자동화<br>시스템 설계</p></div>
-      <div class="step"><div class="circle">▣</div><strong>제작</strong><p>정밀 제작 및<br>품질 검사</p></div>
-      <div class="step"><div class="circle">▤</div><strong>설치 및 시운전</strong><p>설치 및 테스트<br>시운전</p></div>
-      <div class="step"><div class="circle">⚙</div><strong>유지보수</strong><p>체계적인 사후관리<br>지속적 지원</p></div>
-    </div>
-  </div>
-</section>
+          <div class="vision-card">
+            <div class="icon">♙</div>
+            <strong>VALUE</strong>
+            <p>신뢰 · 품질 · 지속 성장</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="contact" class="band">
-  <div class="band-left">
-    <div class="k-title" style="color:#a975ff">CONTACT <span style="color:#c7a8ff">연락처</span></div>
-    <div class="desc">
-      문의사항이 있으시면 언제든지 연락주세요.<br>
-      빠르고 정확하게 답변드리겠습니다.
-    </div>
-  </div>
-  <div class="band-right contact-img">
-    <div class="contact-list">
-      <div class="contact-item"><div class="circle">☎</div><div><strong>055-277-5988</strong><span>010-8781-5988</span></div></div>
-      <div class="contact-item"><div class="circle">✉</div><div><strong>newtack2014@gmail.com</strong><span>24시간 문의 가능</span></div></div>
-      <div class="contact-item"><div class="circle">⌖</div><div><strong>경남 창원시 의창구 사화로 210</strong><span>제50아파트형공장 304호</span></div></div>
-    </div>
-  </div>
-</section>
+    <section class="section project" id="project">
+      <div class="section-inner">
+        <div>
+          <h2 class="section-title green">PROJECT <span>프로젝트</span></h2>
+          <p class="desc">
+            다양한 산업 분야의 프로젝트 경험과<br>
+            기술력으로 최적의 솔루션을 제공합니다.
+          </p>
+          <a href="#contact" class="btn-line">자세히 보기 <span>→</span></a>
+        </div>
 
-<footer>
-  © 2026 NEWTACK. ALL RIGHTS RESERVED.
-</footer>
+        <div class="project-gallery">
+          <img src="assets/project-01.jpg" alt="뉴텍 자동화 프로젝트">
+          <img src="assets/project-02.jpg" alt="뉴텍 자동화 프로젝트">
+          <img src="assets/project-03.jpg" alt="뉴텍 자동화 프로젝트">
+          <img src="assets/project-04.jpg" alt="뉴텍 자동화 프로젝트">
+        </div>
+      </div>
+    </section>
 
+    <section class="section contact" id="contact">
+      <div class="section-inner">
+        <div>
+          <h2 class="section-title purple">CONTACT <span>연락처</span></h2>
+          <p class="desc">
+            문의사항이 있으시면 언제든지 연락주세요.<br>
+            빠르고 정확하게 답변 드리겠습니다.
+          </p>
+        </div>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="circle">☎</div>
+            <div>
+              <strong>055-277-5988</strong>
+              <p>010-8781-5988</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="circle">✉</div>
+            <div>
+              <strong>new014@naver.com</strong>
+              <p>24시간 문의 가능</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="circle">⌖</div>
+            <div>
+              <strong>경상남도 창원시 의창구</strong>
+              <p>사화로 210 제5아파트형공장 304호</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </body>
 </html>
