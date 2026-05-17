@@ -24,14 +24,13 @@ a {
   color: inherit;
 }
 
-/* 전체 화면 고정 기준 */
 .wrap {
   width: 100%;
   min-height: 100vh;
   background: #04101b;
 }
 
-/* 상단 메뉴 */
+/* HEADER */
 .header {
   height: 68px;
   background: #020202;
@@ -129,7 +128,7 @@ a {
   background: rgba(0,0,0,0.25);
 }
 
-/* 회사소개 */
+/* COMPANY */
 .company {
   height: 175px;
   display: grid;
@@ -220,6 +219,7 @@ a {
   font-weight: 700;
 }
 
+/* VISION CARDS */
 .vision-cards {
   display: flex;
   align-items: center;
@@ -235,20 +235,41 @@ a {
   border-radius: 8px;
   background: rgba(0,0,0,0.28);
   text-align: center;
-  padding-top: 22px;
+  padding-top: 18px;
 }
 
-.v-card .circle {
-  width: 28px;
-  height: 28px;
-  border: 3px solid #ff7800;
-  border-radius: 50%;
-  margin: 0 auto 10px;
+.v-icon {
+  width: 42px;
+  height: 34px;
+  margin: 0 auto 8px;
+  position: relative;
+  color: #ff7800;
+}
+
+.v-icon.mission::before {
+  content: "◎";
+  font-size: 38px;
+  line-height: 34px;
+  color: #ff7800;
+}
+
+.v-icon.vision::before {
+  content: "◉";
+  font-size: 38px;
+  line-height: 34px;
+  color: #ff7800;
+}
+
+.v-icon.value::before {
+  content: "♙";
+  font-size: 34px;
+  line-height: 34px;
+  color: #ff7800;
 }
 
 .v-card h3 {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .v-card p {
@@ -299,12 +320,15 @@ a {
   overflow: hidden;
   border-radius: 7px;
   background: #111;
+  height: 136px;
+  border: 1px solid rgba(255,255,255,0.18);
 }
 
 .project-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   filter: brightness(0.72);
   display: block;
 }
@@ -367,14 +391,29 @@ a {
 }
 
 .contact-icon {
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border: 1px solid rgba(255,255,255,0.35);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  color: #ff7800;
+  font-size: 30px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.contact-icon.phone::before {
+  content: "☎";
+}
+
+.contact-icon.mail::before {
+  content: "✉";
+}
+
+.contact-icon.location::before {
+  content: "⌖";
 }
 
 .contact-item strong {
@@ -387,7 +426,7 @@ a {
   color: rgba(255,255,255,0.82);
 }
 
-/* 작은 화면 */
+/* MOBILE */
 @media (max-width: 900px) {
   .header {
     height: auto;
@@ -463,6 +502,7 @@ a {
 
   <header class="header">
     <div class="logo">NEWTACK</div>
+
     <nav class="nav">
       <a href="#">회사소개<span>COMPANY</span></a>
       <a href="#">비전<span>VISION</span></a>
@@ -488,6 +528,7 @@ a {
         분야의 전문 기업으로 고객의 생산성 향상과 품질 혁신을 실현합니다.
       </p>
     </div>
+
     <div class="company-info"></div>
     <div class="company-photo"></div>
   </section>
@@ -504,17 +545,19 @@ a {
 
     <div class="vision-cards">
       <div class="v-card">
-        <div class="circle"></div>
+        <div class="v-icon mission"></div>
         <h3>MISSION</h3>
         <p>검증된 자동화 기술과<br>맞춤형 솔루션 제공</p>
       </div>
+
       <div class="v-card">
-        <div class="circle"></div>
+        <div class="v-icon vision"></div>
         <h3>VISION</h3>
         <p>스마트팩토리<br>선도 기업</p>
       </div>
+
       <div class="v-card">
-        <div class="circle"></div>
+        <div class="v-icon value"></div>
         <h3>VALUE</h3>
         <p>신뢰 · 품질 ·<br>지속 성장</p>
       </div>
@@ -532,19 +575,22 @@ a {
 
     <div class="project-gallery">
       <div class="project-card">
-        <img src="05.png" alt="">
+        <img src="05.png" alt="뉴텍 자동화 프로젝트">
         <div class="txt">로봇 자동화</div>
       </div>
+
       <div class="project-card">
-        <img src="06.png" alt="">
+        <img src="06.png" alt="뉴텍 자동화 프로젝트">
         <div class="txt">조립 라인</div>
       </div>
+
       <div class="project-card">
-        <img src="07.png" alt="">
+        <img src="07.png" alt="뉴텍 자동화 프로젝트">
         <div class="txt">가공 라인</div>
       </div>
+
       <div class="project-card">
-        <img src="08.png" alt="">
+        <img src="08.png" alt="뉴텍 자동화 프로젝트">
         <div class="txt">현장 대응</div>
       </div>
     </div>
@@ -561,7 +607,7 @@ a {
 
     <div class="contact-list">
       <div class="contact-item">
-        <div class="contact-icon">☎</div>
+        <div class="contact-icon phone"></div>
         <div>
           <strong>055-277-5988</strong>
           <p>010-8781-5988</p>
@@ -569,7 +615,7 @@ a {
       </div>
 
       <div class="contact-item">
-        <div class="contact-icon">✉</div>
+        <div class="contact-icon mail"></div>
         <div>
           <strong>new014@naver.com</strong>
           <p>24시간 문의 가능</p>
@@ -577,10 +623,10 @@ a {
       </div>
 
       <div class="contact-item">
-        <div class="contact-icon">⌖</div>
+        <div class="contact-icon location"></div>
         <div>
           <strong>경상남도 창원시 의창구</strong>
-          <p>사화로 210 제5아파트형공장 304호</p>
+          <p>사화로 210 제5아파트형공장<br>304호</p>
         </div>
       </div>
     </div>
