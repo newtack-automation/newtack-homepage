@@ -5,16 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NEWTACK 뉴텍 | Smart Factory Automation</title>
 <meta name="description" content="뉴텍은 로봇·PLC 기반 공장자동화, 조립라인, 가공라인, 물류 자동화 시스템을 구축하는 스마트 자동화 전문기업입니다." />
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;background:#02070d}
 body{font-family:Arial,'Noto Sans KR',sans-serif;background:#02070d;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* PC 기존 이미지형 */
 .site{width:100%;max-width:1498px;margin:0 auto;background:#02070d;position:relative}
 .visual-wrap{position:relative;width:100%}
 .main-visual{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
-.hotspot{position:absolute;display:block;border-radius:6px;z-index:5;background:rgba(255,120,0,0);transition:background .2s ease, box-shadow .2s ease}
+.hotspot{position:absolute;display:block;border-radius:6px;z-index:5;background:rgba(255,120,0,0)}
 .hotspot:hover{background:rgba(255,120,0,.08);box-shadow:0 0 0 1px rgba(255,120,0,.35) inset}
-/* 10.png 기준 클릭 영역 */
+
 .nav-company{left:37.8%;top:0.4%;width:8.3%;height:6.2%}
 .nav-vision{left:50.1%;top:0.4%;width:8.3%;height:6.2%}
 .nav-project{left:62.0%;top:0.4%;width:8.3%;height:6.2%}
@@ -23,44 +27,258 @@ body{font-family:Arial,'Noto Sans KR',sans-serif;background:#02070d;color:#fff;o
 .company-button{left:4.9%;top:47.5%;width:10.2%;height:4.6%}
 .vision-button{left:4.9%;top:63.7%;width:10.2%;height:4.6%}
 .project-button{left:4.9%;top:79.8%;width:10.2%;height:4.6%}
+
 .anchor-target{position:absolute;width:1px;height:1px;left:0}
-#company{top:36.5%}#vision{top:53.2%}#project{top:69.7%}#contact{top:85.7%}
+#company{top:36.5%}
+#vision{top:53.2%}
+#project{top:69.7%}
+#contact{top:85.7%}
+
+/* 모바일 전용 홈페이지 */
+.mobile-site{display:none}
+
 .seo-content{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* MOBILE */
 @media (max-width:768px){
-  html, body{
-    width:100%;
-    min-height:100%;
-    overflow-x:hidden;
-    overflow-y:auto;
-    background:#02070d;
-  }
+  .site{display:none}
+  body{background:#02070d}
 
-  .site{
-    width:100%;
-    max-width:none;
-    background:#02070d;
-  }
-
-  .visual-wrap{
-    width:100%;
-    min-width:0;
-    height:auto;
-    background:none;
-  }
-
-  .main-visual{
+  .mobile-site{
     display:block;
     width:100%;
-    height:auto;
+    background:#02070d;
+    color:#fff;
   }
 
-  .hotspot{
-    display:none;
+  .m-header{
+    background:#030303;
+    padding:16px 18px 14px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    position:sticky;
+    top:0;
+    z-index:20;
+  }
+
+  .m-logo{
+    color:#ff7800;
+    font-size:30px;
+    font-weight:900;
+    margin-bottom:12px;
+  }
+
+  .m-nav{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+    text-align:center;
+    font-size:13px;
+    font-weight:800;
+  }
+
+  .m-nav a{
+    padding:8px 4px;
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:6px;
+    background:rgba(255,255,255,.04);
+  }
+
+  .m-hero{
+    min-height:520px;
+    padding:78px 22px 60px;
+    text-align:center;
+    background:
+      linear-gradient(rgba(0,9,18,.45),rgba(0,9,18,.85)),
+      url("01.png") center center / cover no-repeat;
+    border-bottom:1px solid rgba(255,255,255,.18);
+  }
+
+  .m-hero-kor{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:22px;
+  }
+
+  .m-hero-title{
+    color:#ff7800;
+    font-size:58px;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:-2px;
+  }
+
+  .m-hero-sub{
+    margin-top:18px;
+    font-size:17px;
+    font-weight:800;
+    line-height:1.45;
+  }
+
+  .m-btn{
+    display:inline-block;
+    margin-top:28px;
+    padding:12px 34px;
+    border:1px solid #ff7800;
+    color:#ff7800;
+    border-radius:6px;
+    font-weight:800;
+    background:rgba(0,0,0,.35);
+  }
+
+  .m-section{
+    padding:34px 20px;
+    border-bottom:1px solid rgba(255,255,255,.16);
+    background:#06111d;
+  }
+
+  .m-section h2{
+    font-size:26px;
+    font-weight:900;
+    margin-bottom:18px;
+  }
+
+  .m-section h2 span{
+    font-size:15px;
+    margin-left:8px;
+    opacity:.9;
+  }
+
+  .orange{color:#ff7800}
+  .blue{color:#55b6ff}
+  .green{color:#00a895}
+  .purple{color:#aa74ff}
+
+  .m-section p{
+    font-size:16px;
+    line-height:1.75;
+    word-break:keep-all;
+    color:rgba(255,255,255,.9);
+  }
+
+  .m-photo{
+    width:100%;
+    height:210px;
+    margin-top:22px;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.18);
+  }
+
+  .m-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .m-vision{
+    background:
+      linear-gradient(rgba(5,17,29,.9),rgba(5,17,29,.95)),
+      url("04.png") center / cover no-repeat;
+  }
+
+  .m-cards{
+    display:grid;
+    gap:14px;
+    margin-top:22px;
+  }
+
+  .m-card{
+    padding:22px 18px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:12px;
+    background:rgba(0,0,0,.28);
+    text-align:center;
+  }
+
+  .m-icon{
+    color:#ff7800;
+    font-size:36px;
+    margin-bottom:8px;
+  }
+
+  .m-card strong{
+    display:block;
+    font-size:20px;
+    margin-bottom:8px;
+  }
+
+  .m-project-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:20px;
+  }
+
+  .m-project-card{
+    height:135px;
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.18);
+    background:#111;
+  }
+
+  .m-project-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.72);
+  }
+
+  .m-project-card span{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:15px;
+    font-weight:900;
+    text-shadow:0 2px 8px #000;
+  }
+
+  .m-contact-list{
+    display:grid;
+    gap:16px;
+    margin-top:20px;
+  }
+
+  .m-contact-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:16px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:12px;
+    background:rgba(255,255,255,.04);
+  }
+
+  .m-contact-icon{
+    color:#ff7800;
+    font-size:26px;
+    width:32px;
+    flex-shrink:0;
+    text-align:center;
+  }
+
+  .m-contact-item strong{
+    display:block;
+    font-size:16px;
+    margin-bottom:5px;
+  }
+
+  .m-contact-item p{
+    font-size:14px;
+    line-height:1.55;
   }
 }
 </style>
 </head>
+
 <body>
+
+<!-- PC 화면 -->
 <main class="site">
   <div class="visual-wrap">
     <img class="main-visual" src="10.png" alt="NEWTACK 뉴텍 스마트 공장자동화 홈페이지 메인 화면" />
@@ -79,19 +297,134 @@ body{font-family:Arial,'Noto Sans KR',sans-serif;background:#02070d;color:#fff;o
     <a class="hotspot vision-button" href="#project" aria-label="비전 자세히 보기"></a>
     <a class="hotspot project-button" href="#contact" aria-label="프로젝트 문의하기"></a>
   </div>
-
-  <section class="seo-content" aria-label="뉴텍 회사 정보">
-    <h1>NEWTACK 뉴텍</h1>
-    <p>스마트 자동화로, 더 나은 내일을 만듭니다. Smart Automation, Better Tomorrow.</p>
-    <h2>회사소개</h2>
-    <p>뉴텍은 공장자동화, 로봇자동화, 청정자동화, 조립라인 구축 분야의 전문 기업으로 고객의 생산성 향상과 품질 혁신을 실현합니다.</p>
-    <h2>비전</h2>
-    <p>지속적인 혁신과 고객 중심의 가치로 스마트한 공장을 만들어갑니다.</p>
-    <h2>프로젝트</h2>
-    <p>다양한 산업 분야의 프로젝트 경험과 기술력으로 최적의 솔루션을 제공합니다.</p>
-    <h2>연락처</h2>
-    <p>전화 055-277-5988, 휴대폰 010-8781-5988, 이메일 new014@naver.com, 주소 경상남도 창원시 의창구 사화로 210 제5아파트형공장 304호</p>
-  </section>
 </main>
+
+<!-- 모바일 화면 -->
+<main class="mobile-site">
+
+  <header class="m-header">
+    <div class="m-logo">NEWTACK</div>
+    <nav class="m-nav">
+      <a href="#m-company">회사소개</a>
+      <a href="#m-vision">비전</a>
+      <a href="#m-project">프로젝트</a>
+      <a href="#m-contact">연락처</a>
+    </nav>
+  </header>
+
+  <section class="m-hero">
+    <div class="m-hero-kor">스마트 자동화로, 더 나은 내일을 만듭니다</div>
+    <div class="m-hero-title">NEWTACK</div>
+    <div class="m-hero-sub">SMART AUTOMATION,<br>BETTER TOMORROW</div>
+    <a href="#m-company" class="m-btn">더 알아보기 →</a>
+  </section>
+
+  <section class="m-section" id="m-company">
+    <h2>회사소개 <span class="orange">COMPANY</span></h2>
+    <p>
+      뉴텍은 공장자동화, 로봇자동화, 조립라인 구축 분야의 전문 기업으로
+      고객의 생산성 향상과 품질 혁신을 실현합니다.
+    </p>
+    <div class="m-photo">
+      <img src="03.png" alt="뉴텍 회사 이미지">
+    </div>
+  </section>
+
+  <section class="m-section m-vision" id="m-vision">
+    <h2 class="blue">VISION <span>비전</span></h2>
+    <p>
+      지속적인 혁신과 고객 중심의 가치로 스마트한 공장을 만들어갑니다.
+    </p>
+
+    <div class="m-cards">
+      <div class="m-card">
+        <div class="m-icon">◎</div>
+        <strong>MISSION</strong>
+        <p>검증된 자동화 기술과 맞춤형 솔루션 제공</p>
+      </div>
+
+      <div class="m-card">
+        <div class="m-icon">◉</div>
+        <strong>VISION</strong>
+        <p>스마트팩토리 선도 기업</p>
+      </div>
+
+      <div class="m-card">
+        <div class="m-icon">♙</div>
+        <strong>VALUE</strong>
+        <p>신뢰 · 품질 · 지속 성장</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section" id="m-project">
+    <h2 class="green">PROJECT <span>프로젝트</span></h2>
+    <p>
+      다양한 산업 분야의 프로젝트 경험과 기술력으로 최적의 솔루션을 제공합니다.
+    </p>
+
+    <div class="m-project-grid">
+      <div class="m-project-card">
+        <img src="05.png" alt="">
+        <span>로봇 자동화</span>
+      </div>
+
+      <div class="m-project-card">
+        <img src="06.png" alt="">
+        <span>조립 라인</span>
+      </div>
+
+      <div class="m-project-card">
+        <img src="07.png" alt="">
+        <span>가공 라인</span>
+      </div>
+
+      <div class="m-project-card">
+        <img src="08.png" alt="">
+        <span>현장 대응</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="m-section" id="m-contact">
+    <h2 class="purple">CONTACT <span>연락처</span></h2>
+    <p>문의사항이 있으시면 언제든지 연락주세요.</p>
+
+    <div class="m-contact-list">
+      <div class="m-contact-item">
+        <div class="m-contact-icon">☎</div>
+        <div>
+          <strong>055-277-5988</strong>
+          <p>010-8781-5988</p>
+        </div>
+      </div>
+
+      <div class="m-contact-item">
+        <div class="m-contact-icon">✉</div>
+        <div>
+          <strong>new014@naver.com</strong>
+          <p>24시간 문의 가능</p>
+        </div>
+      </div>
+
+      <div class="m-contact-item">
+        <div class="m-contact-icon">⌖</div>
+        <div>
+          <strong>경상남도 창원시 의창구</strong>
+          <p>사화로 210 제5아파트형공장 304호</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="seo-content" aria-label="뉴텍 회사 정보">
+  <h1>NEWTACK 뉴텍</h1>
+  <p>스마트 자동화로, 더 나은 내일을 만듭니다. Smart Automation, Better Tomorrow.</p>
+  <h2>회사소개</h2>
+  <p>뉴텍은 공장자동화, 로봇자동화, 청정자동화, 조립라인 구축 분야의 전문 기업입니다.</p>
+</section>
+
 </body>
 </html>
