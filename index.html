@@ -27,9 +27,35 @@ body{font-family:Arial,'Noto Sans KR',sans-serif;background:#02070d;color:#fff;o
 #company{top:36.5%}#vision{top:53.2%}#project{top:69.7%}#contact{top:85.7%}
 .seo-content{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 @media (max-width:768px){
-  .site{max-width:none}
-  .visual-wrap{min-width:760px}
-  body{overflow-x:auto}
+  html, body{
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:#02070d;
+  }
+
+  .site{
+    width:100%;
+    max-width:none;
+    min-height:100vh;
+  }
+
+  .visual-wrap{
+    width:100%;
+    height:100vh;
+    min-width:0;
+    background:url("10.png") center top / cover no-repeat;
+  }
+
+  .main-visual{
+    display:none;
+  }
+
+  .hotspot,
+  .anchor-target{
+    display:none;
+  }
 }
 </style>
 </head>
